@@ -92,7 +92,7 @@ function App() {
               />
             </div>
 
-            {/* Category Dropdown */}
+       
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen((o) => !o)}
@@ -115,7 +115,7 @@ function App() {
                 </svg>
               </button>
 
-              {/* Dropdown menu */}
+            
               {dropdownOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-2xl shadow-xl shadow-indigo-100/50 overflow-hidden z-30">
                   <div className="p-1.5 flex flex-col gap-0.5">
