@@ -1,16 +1,99 @@
-# React + Vite
+# 🛍️ ShopSearch — Product Search & Category Filter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application that lets users search and filter products in real time, built with **React 19**, **Vite**, and **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🔍 **Live Search** — filters products instantly as you type (case-insensitive)
+- 🗂️ **Category Filter Dropdown** — All / Electronics / Clothing / Home
+- ⭐ **Star Ratings** — dynamic filled/empty stars per product
+- 🖼️ **Product Images** — local assets served via Vite static imports
+- 📱 **Responsive Grid** — 1 → 2 → 3 → 4 columns across breakpoints
+- 🎨 **React Bits-inspired UI** — gradient borders, glow hover effects, shimmer badge, dot-grid background
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🗂️ Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+searchnfilter/
+├── src/
+│   ├── assets/              # Product images
+│   ├── components/
+│   │   └── ProductCard.jsx  # Individual product card component
+│   ├── App.jsx              # Root component — state, filtering, layout
+│   ├── index.css            # Tailwind + custom CSS utilities
+│   └── main.jsx
+├── vite.config.js
+└── package.json
+```
+
+---
+
+## 🧩 Product Dataset
+
+```js
+const products = [
+  { id: 1, name: "Laptop",     category: "Electronics", price: 60000, rating: 4.8 },
+  { id: 2, name: "Headphones", category: "Electronics", price: 2000,  rating: 4.5 },
+  { id: 3, name: "T-shirt",    category: "Clothing",    price: 800,   rating: 4.2 },
+  { id: 4, name: "Shoes",      category: "Clothing",    price: 2500,  rating: 4.7 },
+  { id: 5, name: "Coffee Mug", category: "Home",        price: 300,   rating: 4.6 },
+];
+```
+
+---
+
+## ✅ Test Cases
+
+| # | Search | Category | Expected Output |
+|---|--------|----------|-----------------|
+| 1 | `""` | All | All 5 products |
+| 2 | `"shoe"` | All | Shoes |
+| 3 | `""` | Electronics | Laptop, Headphones |
+| 4 | `"t"` | Clothing | T-shirt |
+| 5 | `"phone"` | Clothing | No products found |
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| React 19 | UI & state management |
+| Vite 7 | Dev server & bundler |
+| Tailwind CSS v4 | Utility-first styling |
+| `@tailwindcss/vite` | Tailwind Vite plugin |
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## 🧠 Concepts Used
+
+- `useState` — search text and selected category state
+- `useRef` + `useEffect` — dropdown click-outside detection
+- `Array.filter()` — combined search + category filtering
+- **Props** — product data passed into `ProductCard`
+- **Controlled inputs** — search input bound to state
+
+---
+
+## 👨‍💻 Author
+
+**Raghav Karnatak** — Full Stack Development Assignment
